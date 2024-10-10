@@ -1,0 +1,25 @@
+print("Ejercicio 1")
+print("This is my first message.")
+print("")
+print("My name is Edgar Monge Fuentes.")
+print("")
+print("I'm learning new things every Week.")
+print("")
+
+print("Ejercicio 2 Resultados de operaciones matemáticas básicas")
+print("A.")
+var1 = 1
+var2 = 1
+print("Resultado es ambas variables es: ")
+print(var1 + var2)
+
+print("***********")
+print("B.")
+print("Usamos 'resultado' para almacenar la suma de dos numeros.")
+resultado = 90 + 430
+print(resultado)
+
+print("***********")
+print("C.")
+print("El resultado de 4 X 5 es: ")
+print(4 * 5)

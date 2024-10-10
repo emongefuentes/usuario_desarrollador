@@ -1,0 +1,139 @@
+"""1. Cree dos funciones que impriman dos cosas 
+
+distintas,y haga que la primera llame la segunda.""" 
+
+def ingresar_nombre(): 
+    nombre = input(" Ingrese su nombre: ") 
+    print(f'Mi nombre es: {nombre}') 
+
+
+def preguntar_edad(): 
+    edad = input("ingrese su edad: ") 
+    ingresar_nombre()     
+    print(f'Mi edad es: {edad}') 
+
+preguntar_edad()   
+
+
+print("3.Cree una función que retorne la suma de todos los números de una lista.")
+print("a.La función va a tener un parámetro (la lista) y retornar un numero (la suma de todos sus elementos).")
+
+def sumar_numeros(lista_de_numeros):
+    suma = 0
+    for index in range(0, len(lista_de_numeros)):
+        
+        numero = mi_lista[index]
+        suma = suma + numero
+    print(f'El valor total de la suma es: {suma}') 
+ 
+    
+mi_lista=[4, 6, 2, 29] 
+
+sumar_numeros(mi_lista) 
+
+"""4. Cree una función que le de la vuelta a un string y lo retorne.
+    1. Esto ya lo hicimos en iterables.
+    2. “Hola mundo” → “odnum aloH”"""
+
+palabra = input("inserte una palabra: ")
+
+def voltear_palabra():
+    print('Esta es la palabra al revez: ')
+    print(palabra[::-1])
+    
+
+voltear_palabra()
+
+   
+
+"""5. Cree una función que imprima el numero de mayúsculas y el numero de minúsculas en un string.
+    1. “I love Nación Sushi” → “There’s 3 upper cases and 13 lower cases”"""
+    
+    
+																						"""En proceso"""    
+
+
+frase = "EFGabc"  
+
+def categorizar_letras():
+    mayuscula = 0
+    minuscula = 0
+
+    for char in frase:
+        
+        if char == char.upper():
+            print(char) 
+            mayuscula = mayuscula + 1 
+        else:
+            print(char)
+            minuscula = minuscula + 1    
+            
+    print(f'El numero de mayusculas es: {mayuscula}')        
+    print(f'El numero de minusculas es: {minuscula}')          
+                
+
+categorizar_letras()
+
+
+"""6. Cree una función que acepte un string con palabras
+separadas por un guión y retorne un string igual 
+pero ordenado alfabéticamente."""
+
+cadena = "python-variable-funcion-computadora-monitor"
+print(f"La candena actual es: {cadena}")
+
+def ordenar_cadena():
+    lista = cadena.split("-")
+    lista.sort()
+    nueva_cadena = "-".join(lista)
+    print(f"     Cadena ordenada: {nueva_cadena}")
+    
+ordenar_cadena()  
+
+
+
+"""7. Cree una función que acepte una 
+lista de números y retorne una lista 
+con los números primos de la misma. """
+import math 
+
+
+
+def pedir_numeros():
+    continuar = "1"
+    lista = []
+
+    while continuar == "1" :
+        numero=input("Inserte un numero: ")
+        lista.append(numero)
+        continuar = input("Continuar 1.SI 2.NO: ")
+        
+    return lista
+    
+def verificar_primos(lista):
+    nueva_lista=[]
+    for dato in range(0, len(lista)):
+        elemento = lista[dato]
+        numero = int(elemento)
+        
+        if numero == 1 or numero == 0:
+            print('')   
+        elif numero == 2 or numero == 3:
+            
+            nueva_lista.append(elemento) 
+        else:
+            primo = True
+            raiz_cuadrada = int(math.sqrt(numero))
+            for i in range(2, raiz_cuadrada + 1):
+                if numero % i == 0:
+                    primo = False
+                    break
+            if primo:
+                nueva_lista.append(elemento)               
+            
+    return nueva_lista
+        
+lista_numeros = pedir_numeros()
+numeros_primos = verificar_primos(lista_numeros)
+
+print(numeros_primos)

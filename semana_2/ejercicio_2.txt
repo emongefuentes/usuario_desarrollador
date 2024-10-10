@@ -1,0 +1,154 @@
+**Ejercicio 1**
+
+inicio
+
+`precio_de_producto` = 0
+
+mostrar “Ingrese el precio del producto”
+
+si (`precio_de_producto` <100 )
+
+`precio_de_producto` =98  * `precio_de_producto` / 100
+
+sino
+
+`precio_de_producto` = 90 * `precio_de_producto` / 100
+
+//Aqui entiendo que deberia ir fuera de la identacion del Si, pero no se como mover cada reglon hacia atras//
+
+mostrar “El precio final es de”
+
+mostrar **`precio_de_producto`**
+
+fin
+
+**Ejercicio 2**
+
+Inicio
+
+`tiempo_en_segundos` = 0
+
+mostrar “ingrese un tiempo en segundos”
+
+// tambien podria crear una variable que se llame diezMinutos e igualarla a 600//
+
+si (`tiempo_en_segundos`  < 600)
+
+`resultadoFaltante` = 600 -`tiempo_en_segundos` 
+Mostrar `resultadoFaltante` 
+
+      sino
+           Mostrar “Mayor”
+
+Fin
+
+**Ejercicio 3**
+
+inicio
+
+mostrar “ingrese un numero”
+
+`numero` = 5
+
+`contador` = 0
+
+`suma` = 0
+
+mientras (`contador` < `numero`)
+
+`contador` = `contador` + 1
+
+mostrar `contador`
+
+`resultado` = `suma` +  `contador`
+
+mostrar `resultado`
+
+fin
+
+<aside>
+💡 **FAVOR REVISAR EJERCICIOS EXTRA, gracias :) @Eduardo Quiroga**
+
+</aside>
+
+**Ejercicios Extra 1**
+
+Inicio
+
+mostrar “ingrese un primer numero”
+
+pedir `primero`
+
+mostrar “ingrese un segundo numero”
+
+pedir `segundo`
+
+si (primero > segundo)
+
+mostrar `segundo`
+
+mostrar `primero`
+
+si no 
+
+mostrar `primero`
+
+mostrar `segundo`
+
+Fin
+
+**Ejercicios Extra 2**
+
+inicio
+
+mostrar “Ingrese la velocidad en kilometros”
+pedir `velocidad_en_kilometros`
+
+`velocidad_en_segundos` = (`velocidad_en_kilometros * 5` ) / 18
+
+mostrar `velocidad_en_segundos` 
+
+fin
+
+**Ejercicio extra 3**
+
+inicio
+
+mujer = 1
+
+hombre = 2
+
+mostrar “Ingrese 1 si es mujer, ingrese 2 si es hombre”
+
+pedir `genero`
+`contador` = 0
+
+`mujer` = 0
+
+`hombre` = 0
+
+mientras (contador < 6)
+
+si(`genero`== 1)
+
+`mujer`=`mujer` + 1
+
+sino
+
+`hombre` =`hombre` + 1
+
+finSi
+
+`contador`= `contador` + 1
+
+finMientras
+
+`porcientoMujer` = (`mujer` / 6) * 100
+
+`porciertoHombre`= (`hombre` / 6 ) * 100
+
+mostrar `porcientoMujer`
+
+mostrar `porcientoHombre`
+
+fin

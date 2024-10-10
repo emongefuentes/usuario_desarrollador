@@ -1,0 +1,182 @@
+Método	Función / Descrición
+close()	Funciona para cerrar un archivo.
+detach()	Da un contro sobre el flujo de datos cuando se necesita acceso o buffering extra.
+fileno()	Devuelve el descriptor de archivo, un número entero que representa el flujo.
+flush()	Borra los búferes de esta secuencia y hace que todos los datos almacenados en los búferes se escriban en el archivo
+isatty()	Devuelve si un descriptor de archivo está abierto y conectado a un dispositivo similar a tty o no
+read()	Esta funcion lee el archivo completo y deuelve una cadena
+readable()	Devuelve True si el archivo es legible, False si no lo es.
+readline()	Lee una sola linea del archivo, devuelve al final de la linea el caracter nueva linea y solo se omite en la ultima linea del archivo, nsi no termina con el careter de la nueva linea.
+readlines()	Devuelve una lista que contiene cada línea del archivo como un elemento de lista, Utilice el parámetro hint para limitar la cantidad de líneas devueltas. Si la cantidad total de bytes devueltos supera la cantidad especificada, no se devuelven más líneas.
+seek()	Se utiliza para pasar a una posición alternativa en el archivo (desde la que se realizará la lectura o escritura)
+seekable()	Se utiliza para pasar a una posición alternativa en el archivo (desde la que se realizará la lectura o escritura).
+tell()	La función tell de Python se utiliza para determinar la posición o ubicación actual del puntero de archivo . Por qué es importante la función tell de Python. Como la función tell de Python devuelve la posición actual del puntero de lectura/escritura del archivo dentro del archivo, a veces resulta esencial que conozcamos la posición.
+truncate()	El método de archivo truncate() permite al usuario cambiar el tamaño del archivo a una cantidad determinada de bytes cuando se accede al archivo a través del modo de anexión .
+writable()	El método writable() en Python devuelve True si se puede escribir en el archivo, False si no.
+write()	La escritura en un archivo en Python se puede realizar con dos métodos integrados para escribir en un archivo. Python proporciona dos métodos integrados para escribir en un archivo.
+writelines()	El método writelines() escribe los elementos de una lista en el archivo . El lugar donde se insertarán los textos depende del modo del archivo y de la posición del flujo.
+
+"""Ejercicios de Manejo de CSVs
+
+1. Cree un programa que me permita ingresar información de `n` cantidad de videojuegos y los guarde en un archivo `csv`.
+    1. Debe incluir:
+        1. Nombre
+        2. Género
+        3. Desarrollador
+        4. Clasificación ESRB"""  
+        
+import csv
+
+lista_juegos = []
+
+titulos = (
+    'nombre',
+    'Género',
+    'Desarrollador',
+    'Clasificación ESRB',
+)
+
+def insertar_info_juego():
+    print("Datos del Juego")
+    nombre = input("Nombre del juego: ")
+    Género = input("Genero: ")
+    Desarrollador = input("Desarrollador: ")
+    Clasificación_ESRB = input("Claficiacion ESRB: ")
+
+    return {
+        'nombre': nombre,
+        'Género': Género,
+        'Desarrollador': Desarrollador,
+        'Clasificación ESRB': Clasificación_ESRB
+    }
+
+def main():
+    while True:
+        info_juego = insertar_info_juego()
+        lista_juegos.append(info_juego)
+
+        another = input("¿Desea ingresar otro juego? (s/n): ")
+        if another.lower() != 's':
+            break
+
+    filename = 'datos_de_juegos.csv'
+
+    with open(filename, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=titulos)
+        writer.writeheader()
+        writer.writerows(lista_juegos)
+
+    print(f"Datos exportados a {filename}")
+
+if __name__ == "__main__":
+    main()  
+    
+   
+ """2. Lea sobre el resto de métodos del módulo csv aqui y cree una 
+  version alternativa del ejercicio de arriba que guarde el archivo
+   separado por tabulaciones en vez de por comas."""  
+        
+import csv
+
+lista_juegos = []
+
+
+titulos = (
+    'nombre',
+    'Género',
+    'Desarrollador',
+    'Clasificación ESRB',
+)
+
+def insertar_info_juego():
+    print("Datos del Juego")
+    nombre = input("Nombre del juego: ")
+    Género = input("Genero: ")
+    Desarrollador = input("Desarrollador: ")
+    Clasificación_ESRB = input("Clasificación ESRB: ")
+
+    return {
+        'nombre': nombre,
+        'Género': Género,
+        'Desarrollador': Desarrollador,
+        'Clasificación ESRB': Clasificación_ESRB
+    }
+
+def main():
+    while True:
+        info_juego = insertar_info_juego()
+        lista_juegos.append(info_juego)
+
+        another = input("¿Desea ingresar otro juego? (s/n): ")
+        if another.lower() != 's':
+            break
+
+    
+    filename = 'datos_de_juegos.csv'
+
+    
+    with open(filename, 'w', newline='', encoding='utf-8') as file:
+        writer = csv.DictWriter(file, fieldnames=titulos, delimiter='\t') """He utilizado el delimitador de forma manual, ya que excel_tab no pude utilizarlo"""
+        writer.writeheader()
+        writer.writerows(lista_juegos)
+
+    print(f"Datos exportados a {filename}")
+
+if __name__ == "__main__":
+    main()    
+
+
+import json
+
+with open("pokemon.json", "r") as archivo:
+    datos = json.load(archivo)
+    
+print(datos)  
+
+
+def solicitar_nuevo_pokemon():
+    nombre_pokemon = input("Ingrese el nombre del pokemon: ")
+    
+    tipo = input("Ingrese los tipos del pokemon separados por coma: ")
+    tipo_lista = tipo.split(",")
+    for i in range(len(tipo_lista)):
+        tipo_lista[i] = tipo_lista[i].strip()
+        
+        
+    print(tipo_lista)    
+    
+    hp = int(input("Ingrese HP: "))
+    attack = int(input("Ingrese attack: "))
+    defense = int(input("Ingrese defense: "))
+    sp_attack = int(input("Ingrese sp.attack: "))
+    sp_defense = int(input("Ingrese sp.defense: "))
+    speed = int(input("Ingrese speed: "))
+    
+    dict_estadistica = {
+                        "hp": hp,
+                        "attack": attack,
+                        "defense": defense,
+                        "sp_attack": sp_attack,
+                        "sp_defense": sp_defense,
+                        "speed": speed
+                        }
+    print(dict_estadistica)
+    
+    nuevo_pokemon = { 
+        "name": {
+            "english": nombre_pokemon
+        },
+        "type": tipo_lista,
+        "base":  dict_estadistica
+        }
+    print(nuevo_pokemon)
+    
+    datos["pokemon"].append(nuevo_pokemon)
+    
+    with open("pokemon.json", "w") as archivo:
+        json.dump(datos, archivo, indent=4)
+    
+solicitar_nuevo_pokemon()  
+
+
+    
