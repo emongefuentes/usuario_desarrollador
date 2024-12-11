@@ -1,0 +1,249 @@
+print(" *******Ejercicio 1 semana 4 *******")
+print(" ***********************************")
+print("Digite las horas trabajadas")
+horas_trabajadas = input()
+print("Digite su tarifa por hora: ")
+tarifa_hora = input()
+template_hora_trabajadas = f'Las horas trabajadas son: {horas_trabajadas}'
+template_tarifa_hora = f'La tarifa por hora es de: {tarifa_hora} colones'
+
+horas_trabajadas = int(horas_trabajadas)
+tarifa_hora = int(tarifa_hora)
+
+calcular_Salario = horas_trabajadas * tarifa_hora
+muestra_salario = f"Su salario: --- {calcular_Salario} colones"
+print(muestra_salario)
+
+
+print(" *******Ejercicio 2 semana 4 *******")
+print(" ***********************************")
+print("Digite su nombre: ")
+nombre = input()
+print("Digite su apellido: ")
+apellido = input()
+print("Digite el dominio: ")
+dominio = input()
+
+
+template_email = 'El correo electronico es: {name}.{second_name}@{domain}.com'
+formatted_string = template_email.format(name=nombre, second_name=apellido, domain=dominio)
+
+print(formatted_string)
+
+
+"""Cree un programa que le pida al usuario su nombre, apellido, y edad,
+y muestre si es un bebé, niño, preadolescente, adolescente, 
+adulto joven, adulto, o adulto mayor."""
+
+nombre = input("Digite su nombre...")
+apellido = input("Digite su apellido...")
+edad = int(input("Ingrese su edad..."))
+
+if edad >= 65:
+    print(f"El usuario {nombre} {apellido} es un adulto Mayor.")
+elif edad >= 30 and edad < 65:
+    print(f"El usuario {nombre} {apellido} es un adulto.")
+elif edad >= 18 and edad < 30:
+    print(f"El usuario {nombre} {apellido} es un adulto joven.")
+elif edad >= 15 and edad < 18:
+    print(f"El usuario {nombre} {apellido} es un adolescente.")        
+elif edad >= 10 and edad < 15:
+    print(f"El usuario {nombre} {apellido} es un preadolescente.")
+elif edad >= 2 and edad < 10:
+    print(f"El usuario {nombre} {apellido} es un niño.")
+else:
+    print(f'El usuario {nombre} {apellido} es un bebé')
+
+
+"""Cree un programa con un numero secreto del 1 al 10. El programa 
+no debe cerrarse hasta que el usuario adivine el numero."""
+numero_secreto = 8
+numero_ingresado = int(input("Ingrese un número: "))
+
+while numero_ingresado != numero_secreto:
+    print(f" {numero_ingresado} no es el número secreto")
+    numero_ingresado = int(input("Ingrese un número: "))
+
+print(f"Correcto, el número secreto es el: {numero_secreto}")
+
+"""
+Cree un programa que le pida tres números al usuario y muestre el mayor.
+"""
+
+numero_uno = int(input("Ingrese el primer número: "))
+numero_dos = int(input("Ingrese el segundo número: "))
+numero_tres = int(input("Ingrese el tercer número: "))
+
+if numero_uno > numero_dos and numero_uno > numero_tres:
+    print(f"El número uno {numero_uno} es mayor que {numero_dos} y {numero_tres}")
+elif numero_dos > numero_uno  and numero_dos > numero_tres:
+    print(f"El número dos {numero_dos} es mayor que {numero_uno} y {numero_tres}")    
+    
+else:
+    print(f"El número tres {numero_tres} es mayor que {numero_uno} y {numero_dos}") 
+
+
+______________________________________
+"""5. Dada `n` cantidad de notas de un estudiante, calcular: 1. Cuantas notas tiene aprobadas (mayor a 70). 2. Cuantas notas tiene desaprobadas (menor a 70). 3. El promedio de todas. 4. El promedio de las aprobadas. 5. El promedio de las desaprobadas. """
+ 
+ 
+cantidad_notas = int(input("Cuantas notas desea validar? ")) 
+contador = 1 
+suma_notas = 0 
+notas_aprobadas = 0 
+suma_notas_aprobadas = 0 
+notas_desaprobadas = 0 
+suma_notas_desaprobadas = 0
+ 
+while contador <= cantidad_notas: 
+    nota = int(input(f"Ingrese la nota {contador}: "))
+    suma_notas = suma_notas + nota 
+    promedio_total = suma_notas / cantidad_notas 
+    contador = contador + 1
+ 
+    if nota >= 70: 
+        notas_aprobadas = notas_aprobadas + 1 
+        suma_notas_aprobadas = suma_notas_aprobadas + nota 
+        promedio_notas_aprobadas = suma_notas_aprobadas / notas_aprobadas
+ 
+    else:
+        notas_desaprobadas = notas_desaprobadas + 1 
+        suma_notas_desaprobadas = suma_notas_desaprobadas + nota 
+        promedio_notas_desaprobadas = suma_notas_desaprobadas / notas_desaprobadas
+ 
+ 
+print(f"Suma de notas {suma_notas}") 
+print(f"1. El promedio de todas las notas aprobadas es: {promedio_total}") 
+print(f"2. El total de notas aprobadas son: {notas_aprobadas}. Y el promedio de las notas aprobadas es: {promedio_notas_aprobadas}")
+print(f"3. El total de notas desaprobadas son: {notas_desaprobadas}. Y el promedio de las notas desaprobadas es: {promedio_notas_desaprobadas}")
+
+'''
+💪🏽 Ejercicios
+
+1. Cree un pseudocódigo que le pida un `precio de producto` al usuario, 
+calcule su descuento y muestre el precio final tomando en cuenta que:
+    1. Si el precio es menor a 100, el descuento es del 2%.
+    2. Si el precio es mayor o igual a 100, el descuento es del 10%.
+    3. *Ejemplos*:
+        1. 120 → 108
+        2. 40 → 39.2
+'''
+precio_producto = int(input("Ingrese el precio del producto: "))
+
+if precio_producto < 100:
+    descuento = (precio_producto * 2) / 100
+    precio_final = precio_producto - descuento
+
+else:
+    descuento = (precio_producto * 10) / 100
+    precio_final = precio_producto - descuento
+
+print(f'El descuento es de: {precio_final}')   
+
+
+'''
+2. Cree un pseudocódigo que le pida un `tiempo en segundos` al usuario y calcule si es menor o mayor a 10 minutos.
+Si es menor, muestre cuantos segundos faltarían para llegar a 10 minutos. Si es mayor, muestre “*Mayor*”.
+    1. *Ejemplos*:
+        1. 1040 → Mayor
+        2. 140 → 460
+        3. 599 → 1
+'''
+tiempo_segundos = int(input("Ingrese el tiempo en segundos: "))
+segundos_totales = 600
+
+
+if tiempo_segundos < segundos_totales:
+    restantes = segundos_totales - tiempo_segundos
+    print(f"Faltan {restantes} alcanzar los 10 minutos.")
+else:
+    print("Mayor")
+    
+    
+    
+"""3. Cree un algoritmo que le pida un numero al usuario y muestre la suma de todos los números desde 1 hasta ese número.
+    1. 3 → 6 (1 + 2 + 3)
+    2. 5 → 15 (1 + 2 + 3 + 4 + 5) 
+    3. 12 → 78 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12)"""
+    
+numero = int(input("Ingrese un numero: "))
+contador = 0
+suma = 0
+
+while (contador < numero):
+    contador = contador + 1
+    print(f"{contador}")
+    suma = suma + contador
+    
+print(f"La suma de todos es: {suma}")  
+print("Fin")   
+
+
+"""1. Cree un algoritmo que le pida 2 números al usuario, los guarde en dos variables distintas
+(`primero` y `segundo`) y los ordene de menor a mayor en dichas variables.
+    1. Ejemplos:
+        1. A: 56, B: 32 → A: 32, B: 56
+        2. A: 24, B: 76 → A: 24, B: 76
+        3. A: 45, B: 12 → A: 12, B: 45
+        """
+        
+primero = int(input("Ingrese la primera variable: "))  
+segundo = int(input("Ingrese la segunda variable: "))    
+
+if primero > segundo:
+    print (f"A.{segundo} B.{primero}") 
+else:
+    print (f"A.{primero} B.{segundo}")     
+
+print("Fin")    
+
+
+
+
+"""2.Cree un algoritmo que le pida
+ al usuario una velocidad en km/h y 
+ la convierta a m/s. Recuerda que
+  1 km == 1000m y 1 hora == 60 segundos.
+ """
+velocidad_kilometros=int(input("Ingrese la velocidad en kilometros: "))
+velocidad_segundos=(velocidad_kilometros*5) / 18
+print(f"la velocidad en segundos corresponde a: {velocidad_segundos}")
+
+
+
+
+
+
+
+"""3.Cree un algoritmo que le pregunte 
+al usuario por el sexo de 6 personas,
+ ingresando 1 si es mujer o 2 si es 
+ hombre, y muestre al final el porcentaje 
+ de mujeres y hombres."""
+
+
+mujer=0
+hombre=0
+contador=1
+ 
+while (contador <= 6):
+ 
+    contador = contador + 1
+    numero = int(input("Inserte un numero. "))
+       
+    if numero == 1:
+        mujer = mujer + 1
+    elif numero == 2:
+        hombre = hombre + 1
+        
+porcentaje_mujer = (mujer / 6) * 100  
+porcentaje_hombre = (hombre / 6) * 100
+ 
+print(f"La cantidad de mujeress registradas es: {porcentaje_mujer}")          
+print(f"La cantidad de hombres registrados es: {porcentaje_hombre}")
+
+
+
+
+    
+    
